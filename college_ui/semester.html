@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semester Overview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563EB',
+                        secondary: '#1E40AF',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .card-image {
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s ease;
+        }
+        .card:hover .card-image {
+            transform: scale(1.05);
+        }
+        .dev-credentials, .donate-modal {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 50;
+        }
+        .dev-credentials.active, .donate-modal.active {
+            display: block;
+        }
+        .ad-container {
+            min-height: 100px;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 0.875rem;
+        }
+        #scanner-video {
+            width: 100%;
+            max-width: 640px;
+            border-radius: 1rem;
+            background: #000;
+        }
+        .scanner-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 250px;
+            height: 250px;
+            border: 2px solid #fff;
+            border-radius: 1rem;
+            box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
+        }
+        #upi-scanner-video {
+            width: 100%;
+            max-width: 640px;
+            border-radius: 1rem;
+            background: #000;
+        }
+        .upi-scanner-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 250px;
+            height: 250px;
+            border: 2px solid #fff;
+            border-radius: 1rem;
+            box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300 font-sans">
+    <!-- Dark Mode Toggle -->
+    <button id="darkModeToggle" class="fixed top-6 right-6 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path class="dark:hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            <path class="hidden dark:block" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+        </svg>
+    </button>
+
+    <div class="container mx-auto px-4 py-12">
+        <!-- Header Section -->
+        <div class="text-center mb-16">
+            <div class="flex justify-center mb-6">
+                <div class="bg-primary p-4 rounded-2xl shadow-lg">
+                    <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                </div>
+            </div>
+            <h1 class="text-5xl font-bold text-gray-900 dark:text-white mb-6">Semester Overview</h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Explore your academic journey through all eight semesters</p>
+        </div>
+
+        <!-- Top Ad Space -->
+        <div class="mb-12">
+            <div class="ad-container dark:bg-gray-800">
+                Advertisement Space
+            </div>
+        </div>
+
+        <!-- Semester Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Semester 1 -->
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300">
+                <div class="h-48 card-image" style="background-image: url('https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80')"></div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Semester 1</h3>
+                        <span class="px-3 py-1 text-sm font-semibold text-blue-600 bg-blue-100 dark:bg-blue-900 dark:text-blue-200 rounded-full">First Year</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">Foundation courses in Mathematics, Physics, and Basic Engineering</p>
+                    <button class="w-full bg-primary hover:bg-secondary text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center">
+                        View Details
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Semester 2 -->
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300">
+                <div class="h-48 card-image" style="background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1022&q=80')"></div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Semester 2</h3>
+                        <span class="px-3 py-1 text-sm font-semibold text-green-600 bg-green-100 dark:bg-green-900 dark:text-green-200 rounded-full">First Year</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">Advanced Mathematics and Introduction to Programming</p>
+                    <button class="w-full bg-primary hover:bg-secondary text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center">
+                        View Details
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Semester 3 -->
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300">
+                <div class="h-48 card-image" style="background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')"></div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Semester 3</h3>
+                        <span class="px-3 py-1 text-sm font-semibold text-purple-600 bg-purple-100 dark:bg-purple-900 dark:text-purple-200 rounded-full">Second Year</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">Data Structures and Object-Oriented Programming</p>
+                    <button class="w-full bg-primary hover:bg-secondary text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center">
+                        View Details
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Semester 4 -->
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300">
+                <div class="h-48 card-image" style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')"></div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Semester 4</h3>
+                        <span class="px-3 py-1 text-sm font-semibold text-yellow-600 bg-yellow-100 dark:bg-yellow-900 dark:text-yellow-200 rounded-full">Second Year</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">Database Management and Web Development</p>
+                    <button class="w-full bg-primary hover:bg-secondary text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center">
+                        View Details
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Middle Ad Space -->
+            <div class="col-span-full my-8">
+                <div class="ad-container dark:bg-gray-800">
+                    Advertisement Space
+                </div>
+            </div>
+
+            <!-- Semester 5 -->
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300">
+                <div class="h-48 card-image" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')"></div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Semester 5</h3>
+                        <span class="px-3 py-1 text-sm font-semibold text-red-600 bg-red-100 dark:bg-red-900 dark:text-red-200 rounded-full">Third Year</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">Operating Systems and Computer Networks</p>
+                    <button class="w-full bg-primary hover:bg-secondary text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center">
+                        View Details
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Semester 6 -->
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300">
+                <div class="h-48 card-image" style="background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')"></div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Semester 6</h3>
+                        <span class="px-3 py-1 text-sm font-semibold text-indigo-600 bg-indigo-100 dark:bg-indigo-900 dark:text-indigo-200 rounded-full">Third Year</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">Software Engineering and Cloud Computing</p>
+                    <button class="w-full bg-primary hover:bg-secondary text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center">
+                        View Details
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Semester 7 -->
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300">
+                <div class="h-48 card-image" style="background-image: url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')"></div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Semester 7</h3>
+                        <span class="px-3 py-1 text-sm font-semibold text-pink-600 bg-pink-100 dark:bg-pink-900 dark:text-pink-200 rounded-full">Fourth Year</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">Artificial Intelligence and Machine Learning</p>
+                    <button class="w-full bg-primary hover:bg-secondary text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center">
+                        View Details
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Semester 8 -->
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300">
+                <div class="h-48 card-image" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80')"></div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Semester 8</h3>
+                        <span class="px-3 py-1 text-sm font-semibold text-teal-600 bg-teal-100 dark:bg-teal-900 dark:text-teal-200 rounded-full">Fourth Year</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">Final Year Project and Industry Training</p>
+                    <button class="w-full bg-primary hover:bg-secondary text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center">
+                        View Details
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Bottom Ad Space -->
+            <div class="col-span-full mt-8">
+                <div class="ad-container dark:bg-gray-800">
+                    Advertisement Space
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Donate Button -->
+    <button id="donateButton" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+        </svg>
+        <span class="hidden sm:inline">Donate</span>
+    </button>
+
+    <!-- Donate Modal -->
+    <div id="donateModal" class="donate-modal">
+        <div class="container mx-auto px-4 py-8">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-2xl mx-auto p-8">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Support Our Cause</h2>
+                            <p class="text-gray-600 dark:text-gray-400">Help us make education accessible to all</p>
+                        </div>
+                    </div>
+                    <button id="closeDonateButton" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="flex justify-center">
+                        <div class="bg-white p-4 rounded-xl shadow-lg">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=your-upi-id" alt="UPI QR Code" class="w-48 h-48">
+                            <p class="text-center mt-2 text-sm text-gray-600 dark:text-gray-400">Scan to donate</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <input type="text" placeholder="Your Name" class="flex-1 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <input type="email" placeholder="Your Email" class="flex-1 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <input type="tel" placeholder="Your Phone" class="flex-1 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center">
+                        <button id="proceedPayment" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center space-x-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path>
+                            </svg>
+                            <span>Get Shout Out</span>
+                        </button>
+                    </div>
+
+                    <p class="text-center text-sm text-gray-500 dark:text-gray-400">
+                        Your donation will help us provide better education and resources to students
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode toggle functionality
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        
+        // Check for saved theme preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Toggle dark mode
+        darkModeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        });
+
+        // Donate modal functionality
+        const donateButton = document.getElementById('donateButton');
+        const donateModal = document.getElementById('donateModal');
+        const closeDonateButton = document.getElementById('closeDonateButton');
+
+        donateButton.addEventListener('click', () => {
+            donateModal.classList.add('active');
+        });
+
+        closeDonateButton.addEventListener('click', () => {
+            donateModal.classList.remove('active');
+        });
+
+        // Close when clicking outside
+        donateModal.addEventListener('click', (e) => {
+            if (e.target === donateModal) {
+                donateModal.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html> 

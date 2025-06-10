@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Student List</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script>
+      // Enable dark mode toggling
+      function toggleTheme() {
+        document.documentElement.classList.toggle('dark');
+      }
+    </script>
+    <style>
+      /* Optional: Smooth background transition */
+      html {
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 min-h-screen">
+
+    <!-- Header with Toggle -->
+    <header class="flex flex-col sm:flex-row justify-between items-center p-6 border-b border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm">
+      <h1 class="text-2xl font-bold mb-2 sm:mb-0">📋 Student List</h1>
+      <!-- <button onclick="toggleTheme()" class="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 transition">
+        Toggle Theme
+      </button> -->
+    </header>
+
+
+    <main class="flex justify-center p-6">
+
+  <!-- Left Side: Student List -->
+  <section class="w-full max-w-3xl space-y-6">
+
+    <!-- Student Card -->
+    <div class="flex justify-between items-center border p-6 rounded-xl shadow-lg bg-white dark:bg-gray-800 hover:shadow-xl transition duration-300 ease-in-out">
+      <div>
+        <div class="text-xl font-semibold mb-1">Sumit Kumar</div>
+        <div class="text-sm text-gray-600 dark:text-gray-400">22-CSE-55, GEC Vaishali</div>
+      </div>
+      <button class="px-5 py-2 border rounded-lg text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white transition duration-300">
+        View
+      </button>
+    </div>
+
+    <!-- Student Card -->
+    <div class="flex justify-between items-center border p-6 rounded-xl shadow-lg bg-white dark:bg-gray-800 hover:shadow-xl transition duration-300 ease-in-out">
+      <div>
+        <div class="text-xl font-semibold mb-1">Rahul Kumar</div>
+        <div class="text-sm text-gray-600 dark:text-gray-400">22155135044</div>
+      </div>
+      <button class="px-5 py-2 border rounded-lg text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white transition duration-300">
+        View
+      </button>
+    </div>
+
+    <!-- Student Card -->
+    <div class="flex justify-between items-center border p-6 rounded-xl shadow-lg bg-white dark:bg-gray-800 hover:shadow-xl transition duration-300 ease-in-out">
+      <div>
+        <div class="text-xl font-semibold mb-1">Gurushan Kumar</div>
+        <div class="text-sm text-gray-600 dark:text-gray-400">22155135044</div>
+      </div>
+      <button class="px-5 py-2 border rounded-lg text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white transition duration-300">
+        View
+      </button>
+    </div>
+
+  </section>
+</main>
+
+
+      <!-- Right Side: Placeholder -->
+      
+    </main>
+
+  </body>
+</html>
