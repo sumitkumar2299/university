@@ -1,21 +1,12 @@
+import React from 'react'
+import LandingPresentation from './Pages/LandingPresentation'
 
-
-import './App.css'
-
-import AcademicResourcesHub from './Pages/LandingPresentation'
-import RegisterUser from './Pages/Registration_form'
 
 function App() {
-  
-
   return (
-    
     <>
-    
-    {/* <DarkModeToggle/> */}
-    {/* <AcademicResourcesHub/> */}
-    <RegisterUser/>
-
+   <LandingPresentation/>
+   
     </>
   )
 }
