@@ -5,14 +5,7 @@ import React, { useState, useEffect } from 'react';
 // or you've configured Tailwind correctly in your React project.
 
 const LandingPresentation = () => {
-    // State for dark mode
-    const [isDarkMode, setIsDarkMode] = useState(() => {
-        // Initialize dark mode from localStorage or system preference
-        if (typeof window !== 'undefined') { // Check if window is defined (for SSR compatibility)
-            return localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
-        }
-        return false; // Default to light mode if window is not available
-    });
+   
 
     // State for mobile menu visibility
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -23,21 +16,9 @@ const LandingPresentation = () => {
     // State for developer credentials modal visibility
     const [isDevModalOpen, setIsDevModalOpen] = useState(false);
 
-    // Effect to apply dark mode class to HTML element
-    useEffect(() => {
-        if (isDarkMode) {
-            document.documentElement.classList.add('dark');
-            localStorage.theme = 'dark';
-        } else {
-            document.documentElement.classList.remove('dark');
-            localStorage.theme = 'light';
-        }
-    }, [isDarkMode]);
+  
 
-    // Handle dark mode toggle
-    const toggleDarkMode = () => {
-        setIsDarkMode(prevMode => !prevMode);
-    };
+    
 
     // Handle mobile menu toggle
     const toggleMobileMenu = () => {
@@ -116,20 +97,7 @@ const LandingPresentation = () => {
                 </div>
             </nav>
 
-            {/* Theme Controls */}
-            <div className="fixed top-20 right-6 z-50">
-                <button id="darkModeToggle" className="bg-white dark:bg-dark-card text-gray-800 dark:text-white p-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group" onClick={toggleDarkMode}>
-                    <div className="relative">
-                        <svg className="w-6 h-6 transform transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path className={`${isDarkMode ? 'hidden' : 'dark:hidden'}`} strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-                            <path className={`${isDarkMode ? 'block' : 'hidden'} dark:block`} strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                        </svg>
-                        <span className="absolute -top-8 right-0 bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                            Toggle Theme
-                        </span>
-                    </div>
-                </button>
-            </div>
+           
 
             {/* Hero Section */}
             <div className="min-h-screen flex flex-col relative">
@@ -313,7 +281,7 @@ const LandingPresentation = () => {
                                     </div>
                                     <div>
                                         <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Sumit Kumar</h2>
-                                        <p className="text-gray-600 dark:text-gray-400">Full Stack Developer</p>
+                                        <p className="text-gray-600 dark:text-gray-400">Mern Stack Developer</p>
                                     </div>
                                 </div>
                                 <button onClick={hideDevModal} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
@@ -346,13 +314,13 @@ const LandingPresentation = () => {
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                         </svg>
-                                        <span>Location: New Delhi, India</span>
+                                        <span>Location: Patna, India</span>
                                     </div>
                                     <div className="flex items-center text-gray-700 dark:text-gray-300">
                                         <svg className="w-5 h-5 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                                         </svg>
-                                        <span>Projects: 20+ Completed</span>
+                                        <span>Projects: 5+ Completed</span>
                                     </div>
                                     <div className="flex items-center text-gray-700 dark:text-gray-300">
                                         <svg className="w-5 h-5 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -364,19 +332,19 @@ const LandingPresentation = () => {
                                         <svg className="w-5 h-5 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
                                         </svg>
-                                        <span>Skills: Full Stack Development, UI/UX Design</span>
+                                        <span>Skills: Mern Stack Development, </span>
                                     </div>
                                     <div className="flex items-center text-gray-700 dark:text-gray-300">
                                         <svg className="w-5 h-5 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                         </svg>
-                                        <span>Experience: 3+ Years</span>
+                                        <span>Experience: Fresher</span>
                                     </div>
                                     <div className="flex items-center text-gray-700 dark:text-gray-300">
                                         <svg className="w-5 h-5 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                                         </svg>
-                                        <span>Email: contact@sumitkumar.dev</span>
+                                        <span>Email: sumitofficialme@gmail.com</span>
                                     </div>
                                 </div>
                                 <div className="pt-4 border-t border-gray-200 dark:border-gray-700">

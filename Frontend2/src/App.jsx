@@ -1,11 +1,14 @@
 import React from 'react'
-import LandingPresentation from './Pages/LandingPresentation'
+import Login from './Pages/Login'
+import Registration from './Pages/Registration'
 
 
 function App() {
   return (
     <>
-   <LandingPresentation/>
+    {/* <Login/> */}
+    <Registration/>
+  
    
     </>
   )
