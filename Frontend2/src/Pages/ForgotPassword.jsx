@@ -1,5 +1,5 @@
 
-function Login ({ handleFormSubmit, handleUserInput }) {
+function ForgotPassword ({ handleFormSubmit, handleUserInput }) {
     return (
         <>
             <section className="text-gray-600 body-font">
@@ -143,7 +143,7 @@ function Login ({ handleFormSubmit, handleUserInput }) {
                 </div>
 
                     <form className="flex flex-col w-full p-8 mt-10 bg-gray-100 rounded-lg lg:w-2/6 md:w-1/2 md:ml-auto md:mt-0">
-                        <h2 className="mb-5 text-lg font-medium text-gray-900 title-font">Sign in</h2>
+                        <h2 className="mb-5 text-lg font-medium text-gray-900 title-font">Forgot Password</h2>
 
                         
                         <div className="relative mb-4">
@@ -158,23 +158,13 @@ function Login ({ handleFormSubmit, handleUserInput }) {
                                 className="w-full px-3 py-1 mt-2 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out border border-gray-300 rounded outline-noe focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200" />
                         </div>
 
-                        <div className="relative mb-4">
-                            <label htmlFor="password" className="text-sm leading-7 text-gray-600">Password  <span className="text-red-500">*</span></label>
-                            <input 
-                                type="password" 
-                                id="password" 
-                                name="password" 
-                                onChange={handleUserInput}
-                                required 
-                                placeholder="Enter your password"
-                                className="w-full px-3 py-1 mt-2 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out border border-gray-300 rounded outline-noe focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200" />
-                        </div>
+                        
 
                         <button 
                             type="submit"
                             onClick={handleFormSubmit}
                             className="w-full px-8 py-2 text-lg text-white bg-yellow-500 border-0 rounded focus:outline-none hover:bg-yellow-600">
-                            Sign In
+                            Proceed
                         </button>
 
                         <p className="mt-3 text-xs text-gray-500">Donot have an account ? 
@@ -187,4 +177,4 @@ function Login ({ handleFormSubmit, handleUserInput }) {
     )
 }
 
-export default Login;
+export default ForgotPassword;
