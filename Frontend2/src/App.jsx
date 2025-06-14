@@ -10,6 +10,7 @@ import AcademicResourcesHub from './Pages/Content'
 import LandingPresentation from './Pages/LandingPresentation'
 import Contributors from './Pages/Contribution'
 import About from './Pages/About'
+import ContactUs from './Pages/Contactus'
 
 
 function App() {
@@ -25,7 +26,8 @@ function App() {
    {/* <AcademicResourcesHub/> */}
    {/* <LandingPresentation/> */}
    {/* <Contributors/> */}
-   <About/>
+   {/* <About/> */}
+   <ContactUs/>
    
     </>
   )
