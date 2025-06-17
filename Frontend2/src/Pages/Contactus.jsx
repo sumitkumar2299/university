@@ -61,7 +61,7 @@ const ContactUs = () => {
                     </div>
                     <div>
                       <h3 className="text-gray-300 font-medium">Email</h3>
-                      <p className="text-gray-400">your.email@example.com</p>
+                      <p className="text-gray-400">sumitofficialme@gmail.com</p>
                     </div>
                   </div>
 
@@ -74,7 +74,7 @@ const ContactUs = () => {
                     </div>
                     <div>
                       <h3 className="text-gray-300 font-medium">Location</h3>
-                      <p className="text-gray-400">Your City, Country</p>
+                      <p className="text-gray-400">Patna, Bihar</p>
                     </div>
                   </div>
 
@@ -86,7 +86,7 @@ const ContactUs = () => {
                     </div>
                     <div>
                       <h3 className="text-gray-300 font-medium">Availability</h3>
-                      <p className="text-gray-400">Mon - Fri, 9:00 AM - 6:00 PM</p>
+                      <p className="text-gray-400">Mon - Sat, 9:00 AM - 11:00 PM</p>
                     </div>
                   </div>
                 </div>

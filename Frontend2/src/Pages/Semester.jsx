@@ -1,74 +1,49 @@
+
+
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { cseSemesters, eceSemesters, meSemesters, eeSemesters,civilSemesters } from '../Data/SemesterData'
 
 const SemesterOverview = () => {
     const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
+    const { branch } = useParams();
 
-    const semesters = [
-        {
-            id: 1,
-            name: 'Semester 1',
-            year: 'First Year',
-            description: 'Foundation courses in Mathematics, Physics, and Basic Engineering',
-            image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80',
-            color: 'blue'
-        },
-        {
-            id: 2,
-            name: 'Semester 2',
-            year: 'First Year',
-            description: 'Advanced Mathematics and Introduction to Programming',
-            image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1022&q=80',
-            color: 'green'
-        },
-        {
-            id: 3,
-            name: 'Semester 3',
-            year: 'Second Year',
-            description: 'Data Structures and Object-Oriented Programming',
-            image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-            color: 'purple'
-        },
-        {
-            id: 4,
-            name: 'Semester 4',
-            year: 'Second Year',
-            description: 'Database Management and Web Development',
-            image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-            color: 'yellow'
-        },
-        {
-            id: 5,
-            name: 'Semester 5',
-            year: 'Third Year',
-            description: 'Operating Systems and Computer Networks',
-            image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-            color: 'red'
-        },
-        {
-            id: 6,
-            name: 'Semester 6',
-            year: 'Third Year',
-            description: 'Software Engineering and Cloud Computing',
-            image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-            color: 'indigo'
-        },
-        {
-            id: 7,
-            name: 'Semester 7',
-            year: 'Fourth Year',
-            description: 'Artificial Intelligence and Machine Learning',
-            image: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-            color: 'pink'
-        },
-        {
-            id: 8,
-            name: 'Semester 8',
-            year: 'Fourth Year',
-            description: 'Final Year Project and Industry Training',
-            image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80',
-            color: 'teal'
+    // Get the appropriate semester data based on branch
+    const getSemesterData = () => {
+        switch(branch) {
+            case 'cse':
+                return {
+                    semesters: cseSemesters,
+                    branchName: 'Computer Science Engineering',
+                    branchShortName: 'CSE',
+                    branchDescription: 'Explore your academic journey through all eight semesters'
+                };
+            case 'ece':
+                return {
+                    semesters: eceSemesters,
+                    branchName: 'Electronics & Communication Engineering',
+                    branchShortName: 'ECE',
+                    branchDescription: 'Discover the world of electronics and communication through our comprehensive curriculum'
+                };
+            case 'me':
+                return {
+                    semesters: meSemesters,
+                    branchName: 'Mechanical Engineering',
+                    branchShortName: 'ME',
+                    branchDescription: 'Learn mechanical engineering concepts through our structured semester program'
+                };
+            
+            default:
+                return {
+                    semesters: cseSemesters,
+                    branchName: 'Computer Science Engineering',
+                    branchShortName: 'CSE',
+                    branchDescription: 'Explore your academic journey through all eight semesters'
+                };
         }
-    ];
+    };
+
+    const { semesters, branchName, branchShortName, branchDescription } = getSemesterData();
 
     return (
         <div className="min-h-screen bg-gray-50 font-sans">
@@ -82,8 +57,8 @@ const SemesterOverview = () => {
                             </svg>
                         </div>
                     </div>
-                    <h1 className="text-5xl font-bold text-gray-900 mb-6">Semester Overview</h1>
-                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">Explore your academic journey through all eight semesters</p>
+                    <h1 className="text-5xl font-bold text-gray-900 mb-6">{branchName} Semester Overview</h1>
+                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">{branchDescription}</p>
                 </div>
 
                 {/* Top Ad Space */}
@@ -114,7 +89,10 @@ const SemesterOverview = () => {
                                         </span>
                                     </div>
                                     <p className="text-gray-600 mb-6">{semester.description}</p>
-                                    <button className="w-full bg-primary hover:bg-secondary text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center">
+                                    <button 
+                                        onClick={() => console.log('Semester clicked:', semester)}
+                                        className="w-full bg-primary hover:bg-secondary text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center"
+                                    >
                                         View Details
                                         <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>

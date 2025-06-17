@@ -11,24 +11,19 @@ import LandingPresentation from './Pages/LandingPresentation'
 import Contributors from './Pages/Contribution'
 import About from './Pages/About'
 import ContactUs from './Pages/Contactus'
+import ComingSoon from './Pages/ComingSoon'
+import Landing_pageRoutes from './Routes/Landing_pageRoutes'
+import Error from './Pages/Error'
 
 
 function App() {
   return (
     <>
-    {/* <Login/> */}
-    {/* <Registration/> */}
-    {/* <CheckStatus/> */}
-    {/* <ForgotPassword/>*/}
-   {/* <Branches/> */}
-   {/* <SemesterOverview/> */}
-   {/* <SubjectOverview/> */}
-   {/* <AcademicResourcesHub/> */}
-   {/* <LandingPresentation/> */}
-   {/* <Contributors/> */}
-   {/* <About/> */}
-   <ContactUs/>
+    <Landing_pageRoutes/>
+    
+
    
+    
     </>
   )
 }

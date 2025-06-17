@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 function Registration({ handleUserInput, handleFormSubmit }) {
     return (
         <>
@@ -217,7 +217,7 @@ function Registration({ handleUserInput, handleFormSubmit }) {
                         </button>
 
                         <p className="mt-3 text-xs text-gray-500">Already have an account? 
-                        {/* <Link to="/auth/login" className="text-yellow-500">Login</Link> */}
+                        <Link to="/admin" className="text-yellow-500">Login</Link>
                         </p>
                     </form>
                 </div>

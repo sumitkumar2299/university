@@ -1,45 +1,18 @@
-import React, { useState, useEffect } from 'react';
 
-// You would typically import Tailwind CSS via npm in your main App.js or index.js
-// For this single component, we'll assume the Tailwind CDN is in your public/index.html
-// or you've configured Tailwind correctly in your React project.
+
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const LandingPresentation = () => {
-   
-
     // State for mobile menu visibility
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-    // State for login modal visibility
-    const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
     // State for developer credentials modal visibility
     const [isDevModalOpen, setIsDevModalOpen] = useState(false);
 
-  
-
-    
-
     // Handle mobile menu toggle
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(prev => !prev);
-    };
-
-    // Show login modal
-    const showLoginModal = () => {
-        setIsLoginModalOpen(true);
-    };
-
-    // Hide login modal
-    const hideLoginModal = () => {
-        setIsLoginModalOpen(false);
-    };
-
-    // Handle login form submission
-    const handleLogin = (event) => {
-        event.preventDefault(); // Prevent default form submission
-        alert('Login functionality is not implemented yet!');
-        hideLoginModal();
     };
 
     // Show developer modal
@@ -60,7 +33,7 @@ const LandingPresentation = () => {
                     <div className="flex justify-between items-center h-16">
                         {/* Logo */}
                         <div className="flex items-center">
-                            <a href="#" className="text-xl font-bold gradient-text">Academic Hub</a>
+                            <a className="text-xl font-bold gradient-text">Academic Hub</a>
                         </div>
 
                         {/* Mobile Menu Button */}
@@ -72,32 +45,32 @@ const LandingPresentation = () => {
 
                         {/* Navigation Links (Desktop) */}
                         <div id="navLinks" className="hidden md:flex items-center justify-center space-x-6">
-                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-colors font-medium">About Us</a>
-                            <a href="#" className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-colors font-medium">Contributors</a>
-                            <button onClick={showLoginModal} className="bg-primary hover:bg-secondary text-white px-4 py-2 rounded-lg transition-colors flex items-center space-x-2 font-medium">
-                                <span>Admin Login</span>
+                            <Link to="/about" className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-colors font-medium">About Us</Link>
+                            <Link to = "/contributor" className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-colors font-medium">Contributors </Link>
+                            <Link to="/admin" className="bg-primary hover:bg-secondary text-white px-4 py-2 rounded-lg transition-colors flex items-center space-x-2 font-medium">
+                                 <span>Admin Login</span>
                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path>
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path>
                                 </svg>
-                            </button>
+                            </Link>
+                                
+                            
                         </div>
                     </div>
 
                     {/* Mobile Menu */}
                     <div id="mobileMenu" className={`${isMobileMenuOpen ? 'block' : 'hidden'} md:hidden py-4 space-y-4`}>
-                        <a href="#" className="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-colors font-medium">About Us</a>
-                        <a href="#" className="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-colors font-medium">Contributors</a>
-                        <button onClick={showLoginModal} className="w-full bg-primary hover:bg-secondary text-white px-4 py-2 rounded-lg transition-colors flex items-center justify-center space-x-2 font-medium">
-                            <span>Admin Login</span>
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <Link to = "/about"className="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-colors font-medium">About Us</Link>
+                        <Link to = "/contributor"className="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-colors font-medium"> Contributors</Link>
+                        <Link to = "/admin" className="w-full bg-primary hover:bg-secondary text-white px-4 py-2 rounded-lg transition-colors flex items-center justify-center space-x-2 font-medium">
+                        <span>Admin Login</span>
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path>
                             </svg>
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </nav>
-
-           
 
             {/* Hero Section */}
             <div className="min-h-screen flex flex-col relative">
@@ -129,12 +102,12 @@ const LandingPresentation = () => {
 
                             {/* Enhanced CTA Buttons */}
                             <div className="flex flex-col sm:flex-row justify-center gap-4">
-                                <a href="index3.html" className="group bg-primary hover:bg-secondary text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2">
-                                    <span>Get Started</span>
+                                <Link to = "/branch" className="group bg-primary hover:bg-secondary text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2">
+                                      <span>Get Started</span>
                                     <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                                     </svg>
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -189,71 +162,6 @@ const LandingPresentation = () => {
                 </div>
             </div>
 
-            {/* Login Modal */}
-            {isLoginModalOpen && (
-                <div id="loginModal" className="login-modal active" onClick={(e) => e.target.id === 'loginModal' && hideLoginModal()}>
-                    <div className="container mx-auto px-4 flex items-center justify-center">
-                        <div className="bg-white dark:bg-dark-card rounded-2xl shadow-2xl max-w-md w-full p-8 transform scale-100 opacity-100 transition-all duration-300" id="modalContent">
-                            <div className="flex justify-between items-start mb-6">
-                                <div>
-                                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Admin Login</h2>
-                                    <p className="text-gray-600 dark:text-gray-300">Access the admin dashboard</p>
-                                </div>
-                                <button onClick={hideLoginModal} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
-                                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-                                    </svg>
-                                </button>
-                            </div>
-
-                            <form onSubmit={handleLogin} className="space-y-6">
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email</label>
-                                    <div className="relative">
-                                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                            <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path>
-                                            </svg>
-                                        </div>
-                                        <input type="email" required className="w-full pl-10 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-dark-hover text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your email" />
-                                    </div>
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Password</label>
-                                    <div className="relative">
-                                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                            <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                                            </svg>
-                                        </div>
-                                        <input type="password" required className="w-full pl-10 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-dark-hover text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your password" />
-                                    </div>
-                                </div>
-                                <button type="submit" className="w-full bg-primary hover:bg-secondary text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center space-x-2">
-                                    <span>Login</span>
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
-                                    </svg>
-                                </button>
-                            </form>
-
-                            <div className="mt-6 text-center space-y-3">
-                                <a href="#" className="text-sm text-primary hover:text-secondary dark:text-blue-400 dark:hover:text-blue-300 flex items-center justify-center space-x-1">
-                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path>
-                                    </svg>
-                                    <span>Forgot password?</span>
-                                </a>
-                                <div className="text-sm text-gray-600 dark:text-gray-400">
-                                    Don't have an account?
-                                    <a href="#" className="text-primary hover:text-secondary dark:text-blue-400 dark:hover:text-blue-300 font-medium">Sign up</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
-
             {/* Developer Credentials Button */}
             <button id="devButton" className="fixed bottom-6 right-6 bg-primary hover:bg-secondary text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2" onClick={showDevModal}>
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -266,13 +174,6 @@ const LandingPresentation = () => {
             {isDevModalOpen && (
                 <div id="devCredentials" className="dev-credentials active" onClick={(e) => e.target.id === 'devCredentials' && hideDevModal()}>
                     <div className="container mx-auto px-4 py-8 w-full max-w-2xl">
-                        {/* The transform animation was applied directly via JS previously.
-                            In React, you'd typically control this with state-driven classes
-                            or a dedicated animation library. For simplicity, the initial
-                            render will just show it, but if you want the slide-up, you'd need
-                            a slight delay with an additional state or a CSS transition group.
-                            Here, I'm using the `active` class to trigger the `transform` from CSS.
-                        */}
                         <div className="bg-white dark:bg-gray-800 rounded-t-3xl shadow-2xl p-8 transform translateY(0) transition-transform duration-300">
                             <div className="flex justify-between items-start mb-6">
                                 <div className="flex items-center space-x-4">
@@ -357,8 +258,8 @@ const LandingPresentation = () => {
                     </div>
                 </div>
             )}
-
         </div>
     );
 };
+
 export default LandingPresentation;

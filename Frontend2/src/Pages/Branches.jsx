@@ -1,5 +1,7 @@
 
+
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Branches = () => {
     const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
@@ -9,7 +11,7 @@ const Branches = () => {
         {
             id: 1,
             name: 'CSE (IoT)',
-            seats: 120,
+            Documents: 120,
             description: 'Computer Science with Internet of Things specialization',
             image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
             color: 'blue'
@@ -17,7 +19,7 @@ const Branches = () => {
         {
             id: 2,
             name: 'Mechanical',
-            seats: 90,
+            Documents: 70,
             description: 'Mechanical Engineering with modern manufacturing focus',
             image: 'https://images.unsplash.com/photo-1581092921461-eab62e97a2aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
             color: 'green'
@@ -25,7 +27,7 @@ const Branches = () => {
         {
             id: 3,
             name: 'Civil',
-            seats: 60,
+            Documents: 60,
             description: 'Civil Engineering with sustainable infrastructure focus',
             image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
             color: 'purple'
@@ -33,7 +35,7 @@ const Branches = () => {
         {
             id: 4,
             name: 'ECE',
-            seats: 75,
+            Documents: 75,
             description: 'Electronics and Communication Engineering',
             image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80',
             color: 'yellow'
@@ -41,7 +43,7 @@ const Branches = () => {
         {
             id: 5,
             name: 'EE',
-            seats: 60,
+            Documents: 60,
             description: 'Electrical Engineering with power systems focus',
             image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80',
             color: 'red'
@@ -115,16 +117,18 @@ const Branches = () => {
                                 <div className="flex items-center justify-between mb-4">
                                     <h3 className="text-2xl font-bold text-gray-900">{branch.name}</h3>
                                     <span className={`px-3 py-1 text-sm font-semibold text-${branch.color}-600 bg-${branch.color}-100 rounded-full`}>
-                                        {branch.seats} Seats
+                                        {branch.Documents} Documents
                                     </span>
                                 </div>
                                 <p className="text-gray-600 mb-6">{branch.description}</p>
-                                <button className="w-full bg-primary hover:bg-secondary text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center">
-                                    Explore
-                                    <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                    </svg>
-                                </button>
+                                <Link to={`/branch/${branch.name.toLowerCase().split(' ')[0]}`}>
+                                    <button className="cursor-pointer w-full bg-primary hover:bg-secondary text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center">
+                                        Explore
+                                        <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                        </svg>
+                                    </button>
+                                </Link>
                             </div>
                         </div>
                     ))}
@@ -138,7 +142,6 @@ const Branches = () => {
                 )}
             </div>
 
-            {/* Rest of the component remains the same */}
             {/* Donate Button */}
             <button 
                 onClick={() => setIsDonateModalOpen(true)}

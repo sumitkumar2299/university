@@ -2,6 +2,9 @@
 
 import React from 'react';
 
+import ContactUs from './Contactus';
+import { Link } from 'react-router-dom';
+
 const About = () => {
     const features = [
         {
@@ -47,6 +50,12 @@ const About = () => {
     ];
 
     return (
+        <>
+
+        
+
+        
+       
         <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
             {/* Hero Section */}
             <div className="relative overflow-hidden">
@@ -63,7 +72,7 @@ const About = () => {
                             <div className="inline-flex items-center px-4 py-2 rounded-full bg-white shadow-lg mb-8">
                                 <span className="text-sm font-medium text-primary">Student Initiative</span>
                                 <div className="w-1 h-1 rounded-full bg-gray-300 mx-2"></div>
-                                <span className="text-sm font-medium text-gray-600">2024</span>
+                                <span className="text-sm font-medium text-gray-600">2025</span>
                             </div>
                             
                             <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl mb-6">
@@ -127,7 +136,8 @@ const About = () => {
 
             {/* Contact Section */}
             <div className="relative py-16 sm:py-24">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <Link to="/about/contactus" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="relative">
                         <div className="absolute inset-0">
                             <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-3xl"></div>
@@ -155,7 +165,7 @@ const About = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </Link>
             </div>
 
             {/* Join Us Section */}
@@ -175,12 +185,13 @@ const About = () => {
                                         Be part of a community that values knowledge sharing and collaborative learning.
                                     </p>
                                     <div className="mt-8">
-                                        <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-primary hover:bg-secondary transition-colors duration-300 transform hover:scale-105">
+                                        <Link to = "/admin"><button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-primary hover:bg-secondary transition-colors duration-300 transform hover:scale-105">
                                             Get Started
                                             <svg className="ml-2 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                                             </svg>
                                         </button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -189,33 +200,8 @@ const About = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 
 export default About;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
