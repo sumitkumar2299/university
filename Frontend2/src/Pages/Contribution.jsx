@@ -3,7 +3,7 @@ import React from 'react';
 
 
 // github,instagram,linkdin ye sab page ko dikhane ke liye react-router ka use na kare. 
-
+import { Link } from 'react-router-dom';
 const Contributors = () => {
     const contributors = [
         {
@@ -262,12 +262,20 @@ const Contributors = () => {
                                     Join our team and help create quality study materials for everyone.
                                 </p>
                                 <div className="mt-8">
-                                    <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-primary hover:bg-secondary transition-colors duration-300 transform hover:scale-105">
+                                    <Link  to = "/admin/registration">
+                                     <button className="cursor-pointer inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-primary hover:bg-secondary transition-colors duration-300 transform hover:scale-105">
                                         Join Our Team
                                         <svg className="ml-2 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                                         </svg>
                                     </button>
+                                    </Link>
+                                    {/* <button className="cursor-pointer inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-primary hover:bg-secondary transition-colors duration-300 transform hover:scale-105">
+                                        Join Our Team
+                                        <svg className="ml-2 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                                        </svg>
+                                    </button> */}
                                 </div>
                             </div>
                         </div>

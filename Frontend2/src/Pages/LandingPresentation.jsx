@@ -163,7 +163,7 @@ const LandingPresentation = () => {
             </div>
 
             {/* Developer Credentials Button */}
-            <button id="devButton" className="fixed bottom-6 right-6 bg-primary hover:bg-secondary text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2" onClick={showDevModal}>
+            <button id="devButton" className="cursor-pointer fixed bottom-6 right-6 bg-primary hover:bg-secondary text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2" onClick={showDevModal}>
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
                 </svg>
@@ -185,7 +185,7 @@ const LandingPresentation = () => {
                                         <p className="text-gray-600 dark:text-gray-400">Mern Stack Developer</p>
                                     </div>
                                 </div>
-                                <button onClick={hideDevModal} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                                <button onClick={hideDevModal} className="text-gray-500  hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
                                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
                                     </svg>

@@ -12,10 +12,10 @@ const ContactUs = () => {
     setSubmitStatus({ type: '', message: '' });
 
     emailjs.sendForm(
-      '', // Replace with your EmailJS service ID
-      '', // Replace with your EmailJS template ID
+      'service_wytw8pe', // Replace with your EmailJS service ID
+      'template_skb2j03', // Replace with your EmailJS template ID
       form.current,
-      '' // Replace with your EmailJS public key
+      'IRkBrVk0Q9-eJrGxI' // Replace with your EmailJS public key
     )
       .then((result) => {
         setSubmitStatus({
@@ -187,7 +187,7 @@ const ContactUs = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full bg-blue-500 text-white py-3 px-6 rounded-lg font-medium transition duration-300 transform hover:scale-105 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 ${
+                  className={`w-full cursor-pointer bg-blue-500 text-white py-3 px-6 rounded-lg font-medium transition duration-300 transform hover:scale-105 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 ${
                     isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
                   }`}
                 >
