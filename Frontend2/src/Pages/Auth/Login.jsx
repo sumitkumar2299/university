@@ -43,7 +43,7 @@ function Login({ handleFormSubmit, handleUserInput }) {
                 transform="translate(-165.00003 -189.93073)"
                 fill="#ccc"
               />
-              <circle cx="524.99994" cy="335.5" r="16" fill="#f9a826" />
+              <circle cx="524.99994" cy="335.5" r="16" fill="#2563EB" />
               <polygon
                 points="594.599 507.783 582.339 507.783 576.506 460.495 594.601 460.496 594.599 507.783"
                 fill="#ffb8b8"
@@ -79,17 +79,17 @@ function Login({ handleFormSubmit, handleUserInput }) {
               <path
                 d="M814.17958,522.54937H740.13271l.08911-.57617c.13306-.86133,13.19678-86.439,3.56177-114.436a11.813,11.813,0,0,1,6.06933-14.5835h.00025c13.77173-6.48535,40.20752-14.47119,62.52,4.90918a28.23448,28.23448,0,0,1,9.45947,23.396Z"
                 transform="translate(-165.00003 -189.93073)"
-                fill="#f9a826"
+                fill="#2563EB"
               />
               <path
                 d="M754.35439,448.1812,721.01772,441.418l15.62622-37.02978a13.99723,13.99723,0,0,1,27.10571,6.99755Z"
                 transform="translate(-165.00003 -189.93073)"
-                fill="#f9a826"
+                fill="#2563EB"
               />
               <path
                 d="M797.05043,460.73882l-2.00415-45.94141c-1.51977-8.63623,3.42408-16.80029,11.02735-18.13476,7.60547-1.32959,15.03174,4.66016,16.55835,13.35986l7.533,42.92774Z"
                 transform="translate(-165.00003 -189.93073)"
-                fill="#f9a826"
+                fill="#2563EB"
               />
               <path
                 d="M811.71606,517.04933c11.91455,45.37671,13.21436,103.0694,10,166l-16-2-29-120-16,122-18-1c-5.37744-66.02972-10.61328-122.71527-2-160Z"
@@ -186,19 +186,19 @@ function Login({ handleFormSubmit, handleUserInput }) {
             <button
               type="submit"
               onClick={handleFormSubmit}
-              className="cursor-pointer w-full px-8 py-2 text-lg text-white bg-yellow-500 border-0 rounded focus:outline-none hover:bg-yellow-600"
+              className="cursor-pointer w-full px-8 py-2 text-lg text-white  bg-primary hover:bg-secondary border-0 rounded focus:outline-none "
             >
               Sign In
             </button>
 
             
 
-            <p className="mt-3 text-xs text-gray-500 flex flex-col sm:flex-row sm:items-center sm:space-x-4">
+            <p className="mt-5 space-y-2  text-sm text-gray-500 sm:flex sm:items-center sm:justify-between">
               <span>
                 Don't have an account?{" "}
                 <Link
                   to="/admin/registration"
-                  className="text-yellow-500 hover:underline"
+                  className="text-blue-700 hover:underline font-medium"
                 >
                   Sign Up
                 </Link>
@@ -206,9 +206,17 @@ function Login({ handleFormSubmit, handleUserInput }) {
               <span>
                 <Link
                   to="/admin/ForgotPassword"
-                  className="text-yellow-500 hover:underline"
+                  className="text-blue-700 hover:underline font-medium block sm:inline"
                 >
                   Forgot Password
+                </Link>
+              </span>
+              <span>
+                <Link
+                  to="/admin/ForgotPassword"
+                  className="text-blue-700 hover:underline font-medium block sm:inline"
+                >
+                  Check Status
                 </Link>
               </span>
             </p>

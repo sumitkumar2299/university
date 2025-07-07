@@ -35,7 +35,7 @@ function Registration({ handleUserInput, handleFormSubmit }) {
                     />
                     <path
                         d="m207.65881,347.99009h-94.58317c-4.45853,0-8.08586-3.62733-8.08586-8.08586v-24.85271c0-4.45853,3.62733-8.08586,8.08586-8.08586h94.58317c4.45853,0,8.08586,3.62733,8.08586,8.08586v24.85271c0,4.45853-3.62733,8.08586-8.08586,8.08586Z"
-                        fill="#f9a826"
+                        fill="#2563EB"
                         strokeWidth="0"
                     />
                     <line
@@ -99,7 +99,7 @@ function Registration({ handleUserInput, handleFormSubmit }) {
                     />
                     <path
                         d="m348.03434,150.58794l-9.92279.11025c-7.00432,1.13496-8.86567,4.90303-10.37678,11.82954-2.31532,10.56486-5.27271,24.64485-4.6501,24.83943.99228.32427,17.96481,8.08091,26.55809,6.16122l-1.60192-42.94042h-.00649Z"
-                        fill="#f9a826"
+                        fill="#2563EB"
                         strokeWidth="0"
                     />
                     <rect
@@ -128,7 +128,7 @@ function Registration({ handleUserInput, handleFormSubmit }) {
                     />
                     <polygon
                         points="386.58409 226.07905 327.87095 226.73407 344.64242 150.63335 370.22768 150.34149 386.58409 226.07905"
-                        fill="#f9a826"
+                        fill="#2563EB"
                         strokeWidth="0"
                     />
                     <path
@@ -139,7 +139,7 @@ function Registration({ handleUserInput, handleFormSubmit }) {
                     />
                     <path
                         d="m360.31137,150.45175l9.92279-.11025c7.02378.9858,8.96942,4.70846,10.64269,11.60254,2.54879,10.51297,5.81099,24.51514,5.20136,24.72918-.99228.33724-17.77673,8.47005-26.40892,6.74491l.65504-42.96637h-.01296Z"
-                        fill="#f9a826"
+                        fill="#2563EB"
                         strokeWidth="0"
                     />
                     </svg>
@@ -212,12 +212,12 @@ function Registration({ handleUserInput, handleFormSubmit }) {
 
                         <button 
                             onClick={handleFormSubmit}
-                            className="w-full px-8 py-2 text-lg text-white bg-yellow-500 border-0 rounded focus:outline-none hover:bg-yellow-600">
+                            className="w-full px-8 py-2 text-lg text-white  bg-primary hover:bg-secondary border-0 rounded focus:outline-none ">
                             Create Account
                         </button>
 
                         <p className="mt-3 text-xs text-gray-500">Already have an account? 
-                        <Link to="/admin" className="text-yellow-500">Login</Link>
+                        <Link to="/admin" className="text-blue-700 hover:underline">Login</Link>
                         </p>
                     </form>
                 </div>

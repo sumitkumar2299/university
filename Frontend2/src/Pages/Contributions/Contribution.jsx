@@ -1,7 +1,5 @@
 
 import React from 'react';
-
-
 // github,instagram,linkdin ye sab page ko dikhane ke liye react-router ka use na kare. 
 import { Link } from 'react-router-dom';
 const Contributors = () => {
@@ -287,3 +285,11 @@ const Contributors = () => {
 };
 
 export default Contributors;
+
+
+
+
+
+
+
+

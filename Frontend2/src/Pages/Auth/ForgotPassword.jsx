@@ -29,7 +29,7 @@ function ForgotPassword ({ handleFormSubmit, handleUserInput }) {
                         <button 
                             type="submit"
                             onClick={handleFormSubmit}
-                            className="cursor-pointer w-full px-8 py-2 text-lg text-white bg-yellow-500 border-0 rounded focus:outline-none hover:bg-yellow-600">
+                            className="cursor-pointer w-full px-8 py-2 text-lg text-white  bg-primary hover:bg-secondary border-0 rounded focus:outline-none ">
                             Proceed
                         </button>
 
