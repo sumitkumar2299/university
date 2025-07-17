@@ -26,6 +26,7 @@ function Landing_pageRoutes() {
       <Route path="/admin/ForgotPassword" element={<ForgotPassword />} />
       <Route path='/admin/ForgotPassword/:id' element = {<ForgotPassword/>}/>
       <Route path='/abc' element = {<ForgotPassword/>} />
+      <Route path='/def' element = {<ForgotPassword/>} />
       <Route path="*" element={<Error />} />
     </Routes>
   
