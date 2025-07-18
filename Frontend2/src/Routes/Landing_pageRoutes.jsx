@@ -28,6 +28,7 @@ function Landing_pageRoutes() {
       <Route path='/abc' element = {<ForgotPassword/>} />
       <Route path='/def' element = {<ForgotPassword/>} />
       <Route path="*" element={<Error />} />
+      <Route path='/ghi' element = {< ForgotPassword/>}/>
     </Routes>
   
     </>
