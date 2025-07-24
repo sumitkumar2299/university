@@ -31,7 +31,9 @@ function Landing_pageRoutes() {
       <Route path="*" element={<Error />} />
       <Route path='/ghi' element = {< ForgotPassword/>}/>
       <Route path='/jkl' element ={<ForgotPassword/>}/>
-       <Route path='/mno' element ={<ForgotPassword/>}/>
+      <Route path='/mno' element ={<ForgotPassword/>}/>
+       <Route path='/pqr' element ={<ForgotPassword/>}/>
+
     </Routes>
   
     </>
